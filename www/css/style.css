@@ -1,0 +1,21 @@
+/* Empty. Add your own CSS if you like */
+/* Empty. Add your own CSS if you like */
+.red:before {
+    color: red;
+    }
+
+    .green:before {
+    color: green;
+    }
+
+    .flex_row {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row; 
+    flex-direction: row;
+    }
+    #qrcode {
+        width:160px;
+        height:160px;
+        margin-top:15px;
+      }

@@ -1,0 +1,56 @@
+<ion-view view-title="order">
+        <div class="bar bar-header">
+            
+                    <button class="button button-icon icon-left ion-chevron-left button-clear button-dark" ui-sref="home">back</button>
+            
+            <h1 class="title">Order List</h1>
+           
+                    <!-- <button class="button button-icon icon ion-ios-minus-outline"
+                    ng-click="data.showDelete = !data.showDelete; data.showReorder = false">remove</button> -->
+           
+            </div>
+            <ion-content >
+              <ion-list>
+                  <br>
+                  <br>
+                  <br>
+
+                    <div class="row">
+                   <button class="button button-outline button-royal" ng-click="refresh(order)"  id="messageTxt" ng-disabled="isDisabled" ng-model="isDisabled" style="background-color: rgba(0, 0, 0, 0); border-color: rgba(0, 0, 0, 0) ;"></button> 
+                   <h5  style="display:block; margin-right: auto; margin-left:auto">grandtotal</h5>
+                   <input type="text" name="textbox3" id="grandtotal"  placeholder=" grand total"  style="display:block; margin-right: auto;background-color: rgba(0, 0, 0, 0); border-color: rgba(0, 0, 0, 0) ;"readonly="true"></input></div>
+                   
+                </ion-list>
+                  <ion-list show-delete="data.showDelete" show-reorder="data.showReorder">
+                <ion-item ng-repeat="order in orders"  class="item-remove-animate">
+                  {{order.title}}
+                  <ion-delete-button class="ion-minus-circled" 
+                  ng-click="onItemDelete(order)">
+                </ion-delete-button>
+                </ion-item>
+              </ion-list>
+              <button class="button button-full button-outline button-dark" ng-click="sendorder()"><i class="icon ion-paper-airplane"></i>sendorder</button>
+              <!-- <div class="row">
+              <button class="button button-full button-outline button-dark" ng-click="sendSms()" id="numberTxt" id="messageTxt"><i class="icon ion-ios-email"></i>Send order by msg</button>
+              <button class="button button-full  button-dark" ng-click="server"><i class="icon ion-android-upload"></i>send order by online</button>
+                </div> -->
+              <div class="bar bar-footer tabs-striped tabs-color-dark tabs-icon-top">
+                  <div class="tabs">
+                    <a class="tab-item active" ui-sref="home">
+                      <i class="icon ion-home"></i>
+                      home
+                    </a>
+                    <a class="tab-item" ui-sref="category">
+                      <i class="icon ion-star"></i>
+                      categories
+                    </a>
+                    <a class="tab-item" ui-sref="order">
+                      <i class="icon ion-bag"></i>
+                      orders
+                    </a>
+                  </div>
+                </div>
+              
+
+            </ion-content>
+          </ion-view>

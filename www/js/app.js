@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers'])
+angular.module('starter', ['ionic', 'starter.controllers','ngCordova'])
 
 .run(function ($ionicPlatform,$state,$ionicHistory,$ionicPopup) {
   $ionicPlatform.ready(function () {
@@ -22,7 +22,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 
     $ionicPlatform.registerBackButtonAction(function (event) {
       event.preventDefault();
-      if ($state.current.name == "home" || $state.current.name == "login") {
+      if ($state.current.name == "main" || $state.current.name == "login"||$state.current.name=="ADMINhome"||$state.current.name=="FOODCOUNTERsearch") {
         var confirmPopup = $ionicPopup.confirm({
           title: 'Exit',
           template: 'Confirm Exit'
@@ -38,6 +38,11 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       {
         $ionicHistory.nextViewOptions({ disableBack: true });
         $state.go('login');
+      }
+      else if($state.current.name=="ADMINaccount"||$state.current.name=="ADMINinventory")
+      {
+        $ionicHistory.nextViewOptions({ disableBack: true });
+        $state.go('ADMINhome');
       }
       else if($state.current.name == "qr")
       {
@@ -56,7 +61,11 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
-
+  .state('main',{
+    url: '/main',
+    templateUrl: 'templates/main.html',
+    controller: 'mainCtrl'
+  })
   .state('login',{
     url: '/login',
     templateUrl: 'templates/login.html',
@@ -104,5 +113,30 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     controller: 'historyCtrl'
   })
   
-  $urlRouterProvider.otherwise('login');
-});
+  ////////////////////////////////////////////ADMIN APP//////////////////////////////////////////////////
+  .state('ADMINhome',{
+    url: '/ADMINhome',
+    templateUrl: 'templates/ADMINhome.html',
+    controller: 'ADMINhomeCtrl'
+  })
+  .state('ADMINaccount',{
+    url: '/ADMINaccount',
+    templateUrl: 'templates/ADMINaccount.html',
+    controller: 'ADMINaccountCtrl'
+  })
+  .state('ADMINinventory',{
+    url: '/ADMINinventory',
+    templateUrl: 'templates/ADMINinventory.html',
+    controller: 'ADMINinventoryCtrl'
+  })
+ 
+//////////////////////////////////////////////////////FOOD COUNTER/////////////////////////////////////////////////////////
+.state('FOODCOUNTERsearch',{
+  url: '/FOODCOUNTERsearch',
+  templateUrl: 'templates/FOODCOUNTERsearch.html',
+  controller: 'FOODCOUNTERsearchCtrl'
+})
+$urlRouterProvider.otherwise('main');
+})
+
+;

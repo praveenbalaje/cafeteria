@@ -1,0 +1,35 @@
+<ion-view view-title="account">
+        <div class="bar bar-header bar-dark">
+            <button class="button button-stable" ng-click="back()" ui-sref="ADMINhome"><i class="icon ion-arrow-left-c"></i>BACK</button>
+        <h1 class="title">Account</h1>
+      
+      </div>
+        <ion-content>
+         <br>
+         <br>
+         <br>
+          <div class="row">
+          <div class="col col-40"><h3>Username :</h3></div>
+          <div class="col col-60"><input type="text" name="textbox3" id="username" placeholder="username/mobile" size="20"></div>
+          </div>
+          <div class="row">
+              <div class="col   col-offset-25">
+            <button class="button button-assertive" ng-click="current()">Current Balance</button>
+            </div>
+          </div>
+          <div class="row">
+              <div class="col col-40"><h3>Balance :</h3></div>
+              <div class="col col-60"><input type="text" name="textbox3" id="balance" placeholder="current balance" size="20" readonly=true style="background-color: rgba(0, 0, 0, 0); border-color: rgba(0, 0, 0, 0) ;"></div>
+              </div>
+          <div class="row">
+            <div class="col col-40"><h3>Add on :</h3></div>
+            <div class="col col-60"><input type="text" name="textbox3" id="account" placeholder="enter amount" size="20"></div>
+            </div>
+            <div class="row">
+                <div class="row">
+                    <div class="col  col-25 col-offset-25">
+                     <button class="button button-positive"ng-click="submit()">SUBMIT</button></div>
+            </div>
+        </ion-content>
+      </ion-view>
+      

@@ -1,0 +1,44 @@
+<ion-view view-title="Main">
+    <ion-content >
+        <br>
+        <br>
+        <br>
+        <h1 style="text-align: center;">HOME</h1>
+        <br>
+        <div class="row">
+        <div class="col col-20">
+        <h5 style="text-align: center;">Select the user</h5>
+    </div>
+    <div class="col col-25">
+            <label>
+                    
+                    <input type="radio" ng-model="color.name"   value="customer" ng-click="customer()">
+                    <b>Customer</b>
+                  </label>
+                </div>
+                <div class="col col-20">
+                  <label>
+                    <input type="radio" ng-model="color.name"  value="admin" ng-click="admin()">
+                    <b>Admin</b>
+                  </label>
+                  </div>
+                  <div class="col">
+                        <label>
+                          <input type="radio" ng-model="color.name"  value="foodcounter" ng-click="foodcounter()">
+                          <b>Food Counter</b>
+                        </label>
+                        </div>
+                  </div>
+        <div class="row">
+            <div class="col col-25"><h5>Password :</h5></div>
+            <div class="col"><input type="password" name="textbox3" id="pass" placeholder="type your password"></div>
+        </div>
+        <div class="row">
+            <button class="button button-outline button-royal"style="margin-right:auto; margin-left:auto;"ng-click="login()"><i class="icon ion-log-in"></i> Login</button>
+        </div>
+        <!-- <div class="row">
+            <input tye="text" name="textbox3"placeholder="enter the ip..." id="backup">
+            <button class="button button-dark" ng-click="backup()">SAVE</button>
+          </div> -->
+        </ion-content>
+        </ion-view>

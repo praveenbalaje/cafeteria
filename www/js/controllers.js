@@ -12,7 +12,7 @@ angular.module('starter.controllers', [])
           if($state.current.name=="home"){
   document.getElementById('user').value=window.localStorage['username'];
  
-    $http.get("http://192.168.43.69/cafe/cafe/login/rest/searchdata6?username="+window.localStorage['username']+"", { params: { "key1": "value1"} })
+    $http.get("http://192.168.1.9/cafe/cafe/login/rest/searchdata6?username="+window.localStorage['username']+"", { params: { "key1": "value1"} })
     .success(function(data) {
 
     document.getElementById('available').value=data.status;
@@ -226,27 +226,27 @@ angular.module('starter.controllers', [])
       $scope.save2=  $scope.save2.replace(/[[]|[ ]]/gi,"");
     
       
-      $http.get("http://192.168.43.69/cafe/cafe/login/rest/searchdata6?username="+window.localStorage['username']+"", { params: { "key1": "value1"} })
+      $http.get("http://192.168.1.9/cafe/cafe/login/rest/searchdata6?username="+window.localStorage['username']+"", { params: { "key1": "value1"} })
       .success(function(data) {
 
         localStorage.setItem('available',data.status)
       })
-      $http.get("http://192.168.43.69/cafe/cafe/inventory/rest/searchdata?item=puffs", { params: { "key1": "value1"} })
+      $http.get("http://192.168.1.9/cafe/cafe/inventory/rest/searchdata?item=puffs", { params: { "key1": "value1"} })
       .success(function(data) {
           localStorage.setItem('puffs',data.status);
             
       })
-      $http.get("http://192.168.43.69/cafe/cafe/inventory/rest/searchdata?item=vegroll", { params: { "key1": "value1"} })
+      $http.get("http://192.168.1.9/cafe/cafe/inventory/rest/searchdata?item=vegroll", { params: { "key1": "value1"} })
       .success(function(data) {
           localStorage.setItem('vegroll',data.status);
             
       })
-      $http.get("http://192.168.43.69/cafe/cafe/inventory/rest/searchdata1?item=idly", { params: { "key1": "value1"} })
+      $http.get("http://192.168.1.9/cafe/cafe/inventory/rest/searchdata1?item=idly", { params: { "key1": "value1"} })
       .success(function(data) {
           localStorage.setItem('idly',data.status);
             
       })
-      $http.get("http://192.168.43.69/cafe/cafe/inventory/rest/searchdata1?item=pongal", { params: { "key1": "value1"} })
+      $http.get("http://192.168.1.9/cafe/cafe/inventory/rest/searchdata1?item=pongal", { params: { "key1": "value1"} })
       .success(function(data) {
           localStorage.setItem('pongal',data.status);
             
@@ -272,16 +272,16 @@ angular.module('starter.controllers', [])
             var pongal=window.localStorage['pongal']-window.localStorage['item2'];
             var balance=window.localStorage['available']-window.localStorage['grandtotal'];
   
-            var link = 'http://192.168.43.69/cafe/cc/inventory.php';
+            var link = 'http://192.168.1.9/cafe/cc/inventory.php';
             $http.post(link, {puffs : puffs,vegroll : vegroll}).then(function (res){
             $scope.response = res.data;})
-            var link = 'http://192.168.43.69/cafe/cc/inventory1.php';
+            var link = 'http://192.168.1.9/cafe/cc/inventory1.php';
             $http.post(link, {idly : idly,pongal : pongal}).then(function (res){
             $scope.response = res.data;})
-            var link = 'http://192.168.43.69/cafe/cc/account.php';
+            var link = 'http://192.168.1.9/cafe/cc/account.php';
             $http.post(link, {balance : balance,username : window.localStorage['username']}).then(function (res){
             $scope.response = res.data;})
-            var link = 'http://192.168.43.69/cafe/cc/api.php';
+            var link = 'http://192.168.1.9/cafe/cc/api.php';
             $http.post(link, {username : window.localStorage['username'],mobile: window.localStorage['mobile'],orderlist: $scope.save2
           }
           
@@ -294,7 +294,7 @@ angular.module('starter.controllers', [])
               localStorage.setItem('date',date);
               localStorage.setItem('time',time);
           })
-          var link = 'http://192.168.43.69/cafe/cc/history.php';
+          var link = 'http://192.168.1.9/cafe/cc/history.php';
           $http.post(link, {username : window.localStorage['username'],orders: $scope.save2
         })
         $state.go('qr');
@@ -363,7 +363,7 @@ angular.module('starter.controllers', [])
 //   for(j=1;j<fruits.length;j++)
 //   {   
 //  // alert(fruits[j])
-//   $http.get("http://192.168.43.69/store/inventory/rest/searchdata?item="+fruits[j]+"", { params: { "key1": "value1"} })
+//   $http.get("http://192.168.1.9/store/inventory/rest/searchdata?item="+fruits[j]+"", { params: { "key1": "value1"} })
 //   .success(function(data) {
 //   //alert(j);
   
@@ -386,7 +386,7 @@ angular.module('starter.controllers', [])
     var myVar = setInterval(myTimer ,1000);
   function myTimer() {
     if($state.current.name=="snacks"){
-      $http.get("http://192.168.43.69/cafe/cafe/inventory/rest/searchdata?item=puffs", { params: { "key1": "value1"} })
+      $http.get("http://192.168.1.9/cafe/cafe/inventory/rest/searchdata?item=puffs", { params: { "key1": "value1"} })
   .success(function(data) {
   
       document.getElementById('puffs').value=data.status;
@@ -394,7 +394,7 @@ angular.module('starter.controllers', [])
         
   })
 
-  $http.get("http://192.168.43.69/cafe/cafe/inventory/rest/searchdata?item=vegroll", { params: { "key1": "value1"} })
+  $http.get("http://192.168.1.9/cafe/cafe/inventory/rest/searchdata?item=vegroll", { params: { "key1": "value1"} })
   .success(function(data) {
   
       document.getElementById('vegroll').value=data.status;
@@ -552,7 +552,7 @@ angular.module('starter.controllers', [])
       var myVar = setInterval(myTimer ,100);
     function myTimer() {
       if($state.current.name=="tiffin"){
-        $http.get("http://192.168.43.69/cafe/cafe/inventory/rest/searchdata1?item=idly", { params: { "key1": "value1"} })
+        $http.get("http://192.168.1.9/cafe/cafe/inventory/rest/searchdata1?item=idly", { params: { "key1": "value1"} })
     .success(function(data) {
     
         document.getElementById('idly').value=data.status;
@@ -560,7 +560,7 @@ angular.module('starter.controllers', [])
           
     })
   
-    $http.get("http://192.168.43.69/cafe/cafe/inventory/rest/searchdata1?item=pongal", { params: { "key1": "value1"} })
+    $http.get("http://192.168.1.9/cafe/cafe/inventory/rest/searchdata1?item=pongal", { params: { "key1": "value1"} })
     .success(function(data) {
     
         document.getElementById('pongal').value=data.status;
@@ -718,14 +718,14 @@ angular.module('starter.controllers', [])
     if(mobile!=null && password1!=null ){
 
 
-      $http.get("http://192.168.43.69/cafe/cafe/login/rest/searchdata?username="+username+"", { params: { "key1": "value1"} })
+      $http.get("http://192.168.1.9/cafe/cafe/login/rest/searchdata?username="+username+"", { params: { "key1": "value1"} })
       .success(function(data) {
           localStorage.setItem('l1',data.status);
       })
       .error(function(data) {
           alert("ERROR");
          } )  
-         $http.get("http://192.168.43.69/cafe/cafe/login/rest/searchdata1?mobile="+mobile+"", { params: { "key1": "value1"} })
+         $http.get("http://192.168.1.9/cafe/cafe/login/rest/searchdata1?mobile="+mobile+"", { params: { "key1": "value1"} })
          .success(function(data) {
              $scope.status= data.status;
              localStorage.setItem('l2',data.status);
@@ -740,7 +740,7 @@ angular.module('starter.controllers', [])
       if($scope.l1=="new" && $scope.l2=="new")
       {
       
-      var link = 'http://192.168.43.69/cafe/cc/login.php';
+      var link = 'http://192.168.1.9/cafe/cc/login.php';
       $http.post(link, {username : username,mobile:mobile,password: password}).then(function (res){
       $scope.response = res.data;})
 
@@ -811,12 +811,12 @@ if(window.localStorage['username']!='0')
   $scope.login=function(){
   var uname=document.getElementById('uname').value;
   var pass=document.getElementById('pass').value;
-  $http.get("http://192.168.43.69/cafe/cafe/login/rest/searchdata2?username="+uname+"&&password="+pass+"", { params: { "key1": "value1"} })
+  $http.get("http://192.168.1.9/cafe/cafe/login/rest/searchdata2?username="+uname+"&&password="+pass+"", { params: { "key1": "value1"} })
   .success(function(data) {
       localStorage.setItem('entry',data.status);
   })
 
-  $http.get("http://192.168.43.69/cafe/cafe/login/rest/searchdata3?mobile="+uname+"&&password="+pass+"", { params: { "key1": "value1"} })
+  $http.get("http://192.168.1.9/cafe/cafe/login/rest/searchdata3?mobile="+uname+"&&password="+pass+"", { params: { "key1": "value1"} })
   .success(function(data) {
       localStorage.setItem('entry1',data.status);
   })
@@ -828,7 +828,7 @@ if(window.localStorage['username']!='0')
      {
        if($scope.entry=="Authorished")
        {
-        $http.get("http://192.168.43.69/cafe/cafe/login/rest/searchdata4?username="+uname+"", { params: { "key1": "value1"} })
+        $http.get("http://192.168.1.9/cafe/cafe/login/rest/searchdata4?username="+uname+"", { params: { "key1": "value1"} })
         .success(function(data) {
             localStorage.setItem('mobile',data.status);
         })
@@ -837,7 +837,7 @@ if(window.localStorage['username']!='0')
        }
        else if($scope.entry1=="Authorished")
        {
-        $http.get("http://192.168.43.69/cafe/cafe/login/rest/searchdata5?mobile="+uname+"", { params: { "key1": "value1"} })
+        $http.get("http://192.168.1.9/cafe/cafe/login/rest/searchdata5?mobile="+uname+"", { params: { "key1": "value1"} })
         .success(function(data) {
             localStorage.setItem('username',data.status);
         })
@@ -910,27 +910,27 @@ if(window.localStorage['username']!='0')
   $scope.cancel=function(){
 
   
-    $http.get("http://192.168.43.69/cafe/cafe/login/rest/searchdata6?username="+window.localStorage['username']+"", { params: { "key1": "value1"} })
+    $http.get("http://192.168.1.9/cafe/cafe/login/rest/searchdata6?username="+window.localStorage['username']+"", { params: { "key1": "value1"} })
     .success(function(data) {
 
       localStorage.setItem('available',data.status)
     })
-    $http.get("http://192.168.43.69/cafe/cafe/inventory/rest/searchdata?item=puffs", { params: { "key1": "value1"} })
+    $http.get("http://192.168.1.9/cafe/cafe/inventory/rest/searchdata?item=puffs", { params: { "key1": "value1"} })
     .success(function(data) {
         localStorage.setItem('puffs',data.status);
           
     })
-    $http.get("http://192.168.43.69/cafe/cafe/inventory/rest/searchdata?item=vegroll", { params: { "key1": "value1"} })
+    $http.get("http://192.168.1.9/cafe/cafe/inventory/rest/searchdata?item=vegroll", { params: { "key1": "value1"} })
     .success(function(data) {
         localStorage.setItem('vegroll',data.status);
           
     })
-    $http.get("http://192.168.43.69/cafe/cafe/inventory/rest/searchdata1?item=idly", { params: { "key1": "value1"} })
+    $http.get("http://192.168.1.9/cafe/cafe/inventory/rest/searchdata1?item=idly", { params: { "key1": "value1"} })
     .success(function(data) {
         localStorage.setItem('idly',data.status);
           
     })
-    $http.get("http://192.168.43.69/cafe/cafe/inventory/rest/searchdata1?item=pongal", { params: { "key1": "value1"} })
+    $http.get("http://192.168.1.9/cafe/cafe/inventory/rest/searchdata1?item=pongal", { params: { "key1": "value1"} })
     .success(function(data) {
         localStorage.setItem('pongal',data.status);
     
@@ -943,23 +943,23 @@ if(window.localStorage['username']!='0')
     var pongal=parseInt(window.localStorage['pongal'])+parseInt(window.localStorage['item2']);
     var balance=parseInt(window.localStorage['available'])+parseInt(window.localStorage['grandtotal']);
 
-    var link = 'http://192.168.43.69/cafe/cc/inventory.php';
+    var link = 'http://192.168.1.9/cafe/cc/inventory.php';
     $http.post(link, {puffs : puffs,vegroll : vegroll}).then(function (res){
     $scope.response = res.data;})
-    var link = 'http://192.168.43.69/cafe/cc/inventory1.php';
+    var link = 'http://192.168.1.9/cafe/cc/inventory1.php';
     $http.post(link, {idly : idly,pongal : pongal}).then(function (res){
     $scope.response = res.data;})
-    var link = 'http://192.168.43.69/cafe/cc/account.php';
+    var link = 'http://192.168.1.9/cafe/cc/account.php';
     $http.post(link, {balance : balance,username : window.localStorage['username']}).then(function (res){
     $scope.response = res.data;})
 
-    $http.get("http://192.168.43.69/cafe/cafe/orders/rest/searchdata?date="+window.localStorage['date']+"&&time="+window.localStorage['time']+
+    $http.get("http://192.168.1.9/cafe/cafe/orders/rest/searchdata?date="+window.localStorage['date']+"&&time="+window.localStorage['time']+
     "&&username="+window.localStorage['username']+"", { params: { "key1": "value1"} })
     .success(function(data) {
         localStorage.setItem('id',data.status)
 
     })
-    $http.get("http://192.168.43.69/cafe/cafe/orders/rest/searchdata3?date="+window.localStorage['date']+"&&time="+window.localStorage['time']+
+    $http.get("http://192.168.1.9/cafe/cafe/orders/rest/searchdata3?date="+window.localStorage['date']+"&&time="+window.localStorage['time']+
     "&&username="+window.localStorage['username']+"", { params: { "key1": "value1"} })
     .success(function(data) {
         localStorage.setItem('hid',data.status)
@@ -967,10 +967,10 @@ if(window.localStorage['username']!='0')
     })
     setTimeout(myFunction, 1000);
     function myFunction(){
-    $http.get("http://192.168.43.69/cafe/cafe/orders/rest/searchdata2?data_date="+window.localStorage['date']+"&&ID="+window.localStorage['id']+"", { params: { "key1": "value1"} })
+    $http.get("http://192.168.1.9/cafe/cafe/orders/rest/searchdata2?data_date="+window.localStorage['date']+"&&ID="+window.localStorage['id']+"", { params: { "key1": "value1"} })
     .success(function(data) {
     }) 
-    $http.get("http://192.168.43.69/cafe/cafe/orders/rest/searchdata4?data_date="+window.localStorage['date']+"&&id="+window.localStorage['hid']+"", { params: { "key1": "value1"} })
+    $http.get("http://192.168.1.9/cafe/cafe/orders/rest/searchdata4?data_date="+window.localStorage['date']+"&&id="+window.localStorage['hid']+"", { params: { "key1": "value1"} })
     .success(function(data) {
     })
     $state.go('home');
@@ -1005,7 +1005,7 @@ if(window.localStorage['username']!='0')
   function myFunction() {
   if ($state.current.name == "qr")
 {          
-  $http.get("http://192.168.43.69/cafe/cafe/orders/rest/searchdata?date="+window.localStorage['date']+"&&time="+window.localStorage['time']+
+  $http.get("http://192.168.1.9/cafe/cafe/orders/rest/searchdata?date="+window.localStorage['date']+"&&time="+window.localStorage['time']+
           "&&username="+window.localStorage['username']+"", { params: { "key1": "value1"} })
           .success(function(data) {
               localStorage.setItem('id',data.status)
@@ -1073,7 +1073,7 @@ function myFunction() {
   function myFunction() {
   if ($state.current.name =="history")
   {
-            $http.get("http://192.168.43.69/cafe/cafe/orders/rest/searchdata5?username="+window.localStorage['username']+"", { params: { "key1": "value1"} })
+            $http.get("http://192.168.1.9/cafe/cafe/orders/rest/searchdata5?username="+window.localStorage['username']+"", { params: { "key1": "value1"} })
           .success(function(data) {
            localStorage.setItem('history',data);
           })
@@ -1084,4 +1084,191 @@ function myFunction() {
         }}
       }
 })
+.controller('mainCtrl', function($scope, $stateParams,$state,$ionicPopup,$http) {
+  $scope.customer=function(){
+    localStorage.setItem('main',"customer");
+  }
+  $scope.admin=function(){
+    localStorage.setItem('main',"admin");
+  }
+  $scope.foodcounter=function(){
+    localStorage.setItem('main',"foodcounter");
+  }
+  $scope.login=function()
+  {
+    var pass=document.getElementById('pass').value.toLowerCase();
+    var login=window.localStorage['main'];
+    if(login==pass)
+    {
+      if(login=="customer") $state.go('login');
+      else if(login=="admin")$state.go('ADMINhome');
+      else if(login=="foodcounter") $state.go('FOODCOUNTERsearch');
+      window.localStorage['main']="";
+    }
+    else
+    {
+      alert("Invalid password");
+    }
+  }
+})
+
+/////////////////////////////////////////////////ADMIN APP/////////////////////////////////////////////////////////
+
+.controller('ADMINhomeCtrl', function($scope, $stateParams,$http) {
+  // $scope.backup=function(){
+  //   var backup= document.getElementById('backup').value;
+  //   localStorage.setItem('backup',backup);
+  // }
+})
+.controller('ADMINaccountCtrl', function($scope, $stateParams,$http) {
+
+  $scope.current=function(){
+    var username=document.getElementById('username').value;
+    localStorage.setItem('username',username);
+    var account=document.getElementById('account').value;
+    $http.get("http://192.168.1.9/cafe/cafe/login/rest/searchdata6?username="+username+"", { params: { "key1": "value1"} })
+    .success(function(data) {
+
+      localStorage.setItem('available',data.status)
+      if(data.status==null)
+      {
+        $http.get("http://192.168.1.9/cafe/cafe/login/rest/searchdata7?username="+username+"", { params: { "key1": "value1"} })
+        .success(function(data) {
+    
+          localStorage.setItem('available',data.status)
+        })
+        $http.get("http://192.168.1.9/cafe/cafe/login/rest/searchdata5?mobile="+username+"", { params: { "key1": "value1"} })
+        .success(function(data) {
+            localStorage.setItem('username',data.status);
+        })
+    
+      }
+    })
+    setTimeout(myfunction,1000)
+    function myfunction(){
+document.getElementById('balance').value=window.localStorage['available']
+}
+  }
+  $scope.submit=function(){
+  
+    if(window.localStorage['available']=='')
+    { 
+      var acc=parseInt(document.getElementById('account').value);
+      var link = 'http://192.168.1.9/cafe/cc/account.php';
+      $http.post(link, {balance : acc,username : window.localStorage['username']}).then(function (res){
+      $scope.response = res.data;})
+      
+    }
+    else{
+    var acc=parseInt(document.getElementById('account').value)+parseInt(window.localStorage['available']);
+     var link = 'http://192.168.1.9/cafe/cc/account.php';
+     $http.post(link, {balance : acc,username : window.localStorage['username']}).then(function (res){
+     $scope.response = res.data;})
+    }
+    alert("Updated");
+    document.getElementById('username').value=""
+    document.getElementById('account').value=""
+     document.getElementById('balance').value=""
+  }
+})
+.controller('ADMINinventoryCtrl', function($scope, $stateParams,$http,$state) {
+
+  var myVar = setInterval(myTimer ,100);
+  function myTimer() {
+    if($state.current.name=="inventory"){
+      $http.get("http://192.168.1.9/cafe/cafe/inventory/rest/searchdata1?item=idly", { params: { "key1": "value1"} })
+  .success(function(data) {
+  
+      document.getElementById('idly').value=data.status;
+      localStorage.setItem('idly',data.status);
+        
+  })
+
+  $http.get("http://192.168.1.9/cafe/cafe/inventory/rest/searchdata1?item=pongal", { params: { "key1": "value1"} })
+  .success(function(data) {
+  
+      document.getElementById('pongal').value=data.status;
+      localStorage.setItem('pongal',data.status);
+
+  })
+  $http.get("http://192.168.1.9/cafe/cafe/inventory/rest/searchdata?item=puffs", { params: { "key1": "value1"} })
+  .success(function(data) {
+  
+      document.getElementById('puffs').value=data.status;
+      localStorage.setItem('puffs',data.status);
+        
+  })
+
+  $http.get("http://192.168.1.9/cafe/cafe/inventory/rest/searchdata?item=vegroll", { params: { "key1": "value1"} })
+  .success(function(data) {
+  
+      document.getElementById('vegroll').value=data.status;
+      localStorage.setItem('vegroll',data.status);
+
+  })
+}}
+$scope.submit=function(){
+var idly=parseInt(document.getElementById('idly1').value)+parseInt(window.localStorage['idly']);
+var pongal=parseInt(document.getElementById('pongal1').value)+parseInt(window.localStorage['pongal']);
+var puffs=parseInt(document.getElementById('puffs1').value)+parseInt(window.localStorage['puffs']);
+var vegroll=parseInt(document.getElementById('vegroll1').value)+parseInt(window.localStorage['vegroll']);
+
+var link = 'http://192.168.1.9/cafe/cc/inventory.php';
+$http.post(link, {puffs : puffs,vegroll : vegroll}).then(function (res){
+$scope.response = res.data;})
+var link = 'http://192.168.1.9/cafe/cc/inventory1.php';
+$http.post(link, {idly : idly,pongal : pongal}).then(function (res){
+$scope.response = res.data;})
+alert("Updated")
+document.getElementById('idly1').value="0"
+document.getElementById('pongal1').value="0"
+ document.getElementById('puffs1').value="0"
+ document.getElementById('vegroll1').value="0"
+}
+})
+
+/////////////////////////////////////FOOD COUNTER/////////////////////////////////////////////////////////////
+.controller('FOODCOUNTERsearchCtrl', function($scope, $cordovaBarcodeScanner,$http,$state) {
+  // $scope.backup=function(){
+  //   var backup= document.getElementById('backup').value;
+  //   localStorage.setItem('backup',backup);
+  // }
+    $scope.scanBarcode=function(){
+                   
+      $cordovaBarcodeScanner.scan().then(function(imageData){
+
+        arr = imageData.text.split(' ');             // ["72", "tocirah", "sneab"]
+        data_date = arr[0];                    // "72"
+        ID = arr[1];
+        localStorage.setItem('data_date',data_date);
+        localStorage.setItem('ID',ID);
+
+        $http.get("http://192.168.1.9/cafe/cafe/orders/rest/searchdata1?data_date="+data_date+"&&ID="+ID+"", { params: { "key1": "value1"} })
+        .success(function(data) {
+
+              document.getElementById('final').value=data.status;
+        })  
+        console.log("Barcode Format -> " + imageData.format);
+        console.log("Cancelled -> " + imageData.cancelled);
+  
+         
+      },function(error){
+        console.log("An error happened -> " + error);
+      }
+    )
+  
+    }
+
+  
+     $scope.delivered=function(){
+
+  data_date=window.localStorage['data_date'];
+  ID=window.localStorage['ID'];
+      $http.get("http://192.168.1.9/cafe/cafe/orders/rest/searchdata2?data_date="+data_date+"&&ID="+ID+"", { params: { "key1": "value1"} })
+      .success(function(data) {
+        document.getElementById('final').value="";
+      }) 
+
+        }
+      })
 ;
